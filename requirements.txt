@@ -1,0 +1,6 @@
+# Basic Python requirements
+numpy==1.24.3
+pandas==2.0.2
+matplotlib==3.7.1
+scikit-learn==1.2.2
+pytest==7.3.1
