@@ -1,0 +1,6 @@
+@echo off
+echo Running Docker Virtual Environment Test Script...
+python test_docker_setup.py
+echo.
+echo Press any key to exit...
+pause > nul

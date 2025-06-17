@@ -44,12 +44,63 @@ This project provides a template for using Docker as a virtual environment in Py
 
 ## Customizing Your Environment
 
+### Manual Updates
 - Modify `requirements.txt` to add or update Python packages
 - Edit the `Dockerfile` if you need to:
   - Change the Python version
   - Install system dependencies
   - Set environment variables
   - Configure other container settings
+
+### Using the Package Update Script
+
+This project includes scripts to help you manage packages in your Docker environment:
+
+#### For Windows Users (PowerShell):
+```powershell
+.\update.ps1 install <package-name>
+```
+
+#### For Linux/Mac Users (Bash):
+```bash
+./update.sh install <package-name>
+```
+
+The script will:
+1. Execute into your running Docker container
+2. Install the specified package using pip
+3. Update the requirements.txt file with all installed packages
+4. Rebuild the container with the updated requirements
+
+**Note:** Make sure your Docker container is running before using the script.
+
+## Testing the Setup
+
+This project includes test scripts to verify your Docker setup without making permanent changes to your system:
+
+### Running the Test Script
+
+#### For Windows Users:
+Double-click the `test_docker_setup.bat` file or run:
+```powershell
+.\test_docker_setup.bat
+```
+
+#### For Linux/Mac Users:
+Make the script executable and run it:
+```bash
+chmod +x test_docker_setup.sh
+./test_docker_setup.sh
+```
+
+The test script will:
+1. Check if Docker is installed and running
+2. Build a temporary test image using the Dockerfile
+3. Test the container by running a simple Python command
+4. Simulate the update script functionality
+5. Clean up all test resources when done
+
+This is a safe way to verify your Docker setup without affecting your actual development environment.
 
 ## Troubleshooting
 
